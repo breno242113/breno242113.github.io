@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorização Morangueira ML</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #090909;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
+        .caixa {
+            width: min(700px, 85%);
+            padding: 30px;
+            text-align: center;
+            background: #171717;
+            border: 2px solid #d90000;
+            border-radius: 16px;
+        }
+
+        h1 {
+            color: #ff2020;
+        }
+
+        #url {
+            margin: 20px 0;
+            padding: 15px;
+            background: #050505;
+            border-radius: 8px;
+            word-break: break-all;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: 0;
+            border-radius: 8px;
+            background: #d90000;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <h1>Autorização concluída</h1>
+        <p>Copie o endereço completo desta página e cole no Morangueira ML.</p>
+
+        <div id="url"></div>
+
+        <button onclick="copiarEndereco()">Copiar endereço completo</button>
+    </div>
+
+    <script>
+        const endereco = window.location.href;
+        document.getElementById("url").textContent = endereco;
+
+        async function copiarEndereco() {
+            await navigator.clipboard.writeText(endereco);
+            alert("Endereço copiado.");
+        }
+    </script>
+</body>
+</html>
